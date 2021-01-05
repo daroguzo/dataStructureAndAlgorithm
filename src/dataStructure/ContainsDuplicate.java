@@ -1,6 +1,8 @@
 package dataStructure;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ContainsDuplicate {
     /*
@@ -13,7 +15,7 @@ public class ContainsDuplicate {
 
     public static void main(String[] args) {
         ContainsDuplicate containsDuplicate = new ContainsDuplicate();
-        System.out.println(containsDuplicate.solution2(new int[] {1, 2, 2, 4, 5, 5}));
+        System.out.println(containsDuplicate.solution3(new int[] {1, 2, 3, 4, 5, 6}));
     }
 
     // 시간 복잡도: O(n²)
@@ -35,6 +37,21 @@ public class ContainsDuplicate {
         for (int i = 0; i < numbers.length - 1; i++) {
             if (numbers[i] == numbers[i + 1]) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    // 시간 복잡도: O(N)
+    // 공간 복잡도: O(N)
+    private boolean solution3(int[] numbers) {
+        Set<Integer> numberSet = new HashSet<>();
+        for (int number :
+                numbers) {
+            if (numberSet.contains(number)) {
+                return true;
+            }else {
+                numberSet.add(number);
             }
         }
         return false;
