@@ -10,7 +10,7 @@ public class ReverseString {
 
     public static void main(String[] args) {
         ReverseString reverseString = new ReverseString();
-        System.out.println(reverseString.solution1("hello".toCharArray()));
+        System.out.println(reverseString.solution2("hello".toCharArray()));
     }
 
     private char[] solution1(char[] message) {
@@ -24,5 +24,15 @@ public class ReverseString {
     // 시간 복잡도: O(N)
     // 공간 복잡도: O(N)
 
+    private char[] solution2(char[] message) {
+        for (int i = 0; i < message.length / 2; i++) {
+            char temp = message[i];
+            message[i] = message[message.length - 1 - i];
+            message[message.length - 1 - i] = temp;
+        }
+        return message;
+    }
+    // 시간 복잡도: O(N)
+    // 공간 복잡도: O(1)
 
 }
