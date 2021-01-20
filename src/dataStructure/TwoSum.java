@@ -30,7 +30,6 @@ numbers 배열에 중복되는 숫자는 없으며 target 숫자를 만들 수 �
     }
     // 시간 복잡도: O(N²)
     // 공간 복잡도: O(1)
-
     private int[] solution2(int[] numbers, int target) {
         Map<Integer, Integer> numberMap = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
