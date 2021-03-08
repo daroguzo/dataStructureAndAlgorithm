@@ -9,8 +9,7 @@ import java.util.Arrays;
 public class SortByArray {
     public static void main(String[] args) {
         SortByArray sortByArray = new SortByArray();
-        System.out.println(
-                Arrays.toString(sortByArray.solution(new int[]{2,4,1,5,6,9})));
+        System.out.println(Arrays.toString(sortByArray.solution(new int[]{2,4,1,5,6,9})));
     }
 
     private int[] solution(int[] numbers) {
