@@ -1,27 +1,27 @@
 package algorithm.ETC;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+
+import java.util.Scanner;
 
 public class Q1929 {
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] input = br.readLine().split(" ");
-        int m = Integer.parseInt(input[0]);
-        int n = Integer.parseInt(input[1]);
-        int[] prime = new int[n+1];
-        int i, j;
-
-        Arrays.fill(prime, 0);
-        prime[1] = 1;
-
-        for(i = 2; i <= n; i++) {
-            for(j = 2; i * j <= n; j++)
-                prime[i * j] = 1;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        boolean[] check = new boolean[m+1];
+        check[0] = check[1] = true;
+        for (int i = 2; i*i <= m; i++) {
+            if (check[i]) {
+                continue;
+            }
+            for (int j = i+i; j <= m; j+=i) {
+                check[j] = true;
+            }
         }
-
-        for(i = m; i <= n; i++)
-            if(prime[i] != 1) System.out.println(i);
+        for (int i = n; i <= m; i++) {
+            if (!check[i]) {
+                System.out.println(i);
+            }
+        }
     }
 }
