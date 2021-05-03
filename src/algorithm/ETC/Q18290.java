@@ -1,4 +1,4 @@
-package dataStructure;
+package algorithm.ETC;
 
 import java.util.Scanner;
 

@@ -1,5 +1,4 @@
 package algorithm.ETC;
-
 import java.util.Scanner;
 
 public class Q1212 {
