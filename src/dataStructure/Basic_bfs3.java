@@ -67,7 +67,7 @@ public class Basic_bfs3 {
             int[] point = queue.poll();
             thisNumAreaSize++;
 
-            //            System.out.println("thisNumAreaSize: "+thisNumAreaSize);
+//            System.out.println("thisNumAreaSize: "+thisNumAreaSize);
             for (int[] dir : dirs) {
                 int newX = point[0] + dir[0];
                 int newY = point[1] + dir[1];
