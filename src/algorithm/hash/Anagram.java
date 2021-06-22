@@ -13,23 +13,18 @@ public class Anagram {
     }
 
     private String solution(String a, String b) {
-        HashMap<Character, Integer> aMap = new HashMap<>();
-        HashMap<Character, Integer> bMap = new HashMap<>();
+        HashMap<Character, Integer> hashMap = new HashMap<>();
 
         for (char key :
                 a.toCharArray()) {
-            aMap.put(key, aMap.getOrDefault(key, 0)+1);
+            hashMap.put(key, hashMap.getOrDefault(key, 0)+1);
         }
 
         for (char key :
                 b.toCharArray()) {
-            bMap.put(key, bMap.getOrDefault(key, 0)+1);
-        }
-
-        for (char key :
-                a.toCharArray()) {
-            if (!aMap.get(key).equals(bMap.get(key)))
+            if (!hashMap.containsKey(key) || hashMap.get(key) == 0)
                 return "NO";
+            hashMap.put(key, hashMap.get(key) - 1);
         }
 
         return "YES";
