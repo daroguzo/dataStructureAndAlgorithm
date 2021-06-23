@@ -35,4 +35,22 @@ public class Bracket {
         else
             return "NO";
     }
+
+    private String solution2(String input) {
+        Stack<Character> stack = new Stack<>();
+        for (char c :
+                input.toCharArray()) {
+            if (c == '(')
+                stack.push(c);
+            else {
+                if (stack.isEmpty())
+                    return "NO";
+                stack.pop();
+            }
+        }
+        if (!stack.isEmpty())
+            return "NO";
+
+        return "YES";
+    }
 }
