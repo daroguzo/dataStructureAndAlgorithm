@@ -10,15 +10,13 @@ public class Q2609 {
     }
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int count = scan.nextInt();
+        Scanner sc = new Scanner(System.in);
         int a, b, gcd, lcm;
-        for (int i = 0; i < count; i++) {
-            a = scan.nextInt();
-            b = scan.nextInt();
-            gcd = gcd(a, b);
-            lcm = (a * b / gcd);
-            System.out.println(lcm);
-        }
+        a = sc.nextInt();
+        b = sc.nextInt();
+        gcd = gcd(a, b);
+        lcm = (a * b / gcd);
+        System.out.println(gcd);
+        System.out.println(lcm);
     }
 }
