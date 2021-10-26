@@ -65,4 +65,21 @@ public class BaseStation {
 
         return answer;
     }
+
+    // 올바른 접근
+    public int solution3(int n, int[] stations, int w) {
+        int answer = 0, si = 0, position = 1;
+
+        while (position <= n) {
+            if (si < stations.length && stations[si] - w <= position) {
+                position = stations[si] + w + 1;
+                si += 1;
+            } else {
+                answer += 1;
+                position += w * 2 + 1;
+            }
+        }
+
+        return answer;
+    }
 }
