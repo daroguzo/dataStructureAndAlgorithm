@@ -1,6 +1,8 @@
 package algorithm.greedy;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BaseStation {
 
@@ -38,6 +40,29 @@ public class BaseStation {
                 }
             }
         }
+        return answer;
+    }
+
+    // 올바른 접근 but 시간초과
+    public int solution1(int n, int[] stations, int w) {
+        int answer = 0;
+
+        Queue<Integer> sq = new LinkedList<>();
+        for (int s :
+                stations) {
+            sq.offer(s);
+        }
+
+        int position = 1;
+        while (position <= n) {
+            if (!sq.isEmpty() && sq.peek() - w <= position) {
+                position = sq.poll() + w + 1;
+            } else {
+                answer += 1;
+                position += w * 2 + 1;
+            }
+        }
+
         return answer;
     }
 }
