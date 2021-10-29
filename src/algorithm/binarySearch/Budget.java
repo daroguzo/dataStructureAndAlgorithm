@@ -1,0 +1,28 @@
+package algorithm.binarySearch;
+
+import java.util.Arrays;
+
+public class Budget {
+    public int solution(int[] budgets, int M) {
+        int answer = 0, left = 0, right;
+
+        Arrays.sort(budgets);
+        right = budgets[budgets.length - 1];
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int sum = 0;
+            for (int b :
+                    budgets) {
+                sum += Math.min(b, mid);
+            }
+            if (sum > M) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+                answer = Math.max(answer, mid);
+            }
+        }
+        return answer;
+    }
+}
