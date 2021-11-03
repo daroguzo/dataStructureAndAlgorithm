@@ -30,4 +30,29 @@ public class Budget {
         }
         return answer;
     }
+    /*
+    public int solution(int[] budgets, int M) {
+        int max = 0;
+        for (int b : budgets) max = Math.max(max, b);
+        return reculsion(budgets, M, 0, max);
+    }
+
+    private int reculsion(int[] budgets, int M, int low, int high) {
+        int mid = (low + high) / 2;
+        if (mid <= low) return low;
+
+        int total = 0;
+        for (int i = 0; i < budgets.length; i++) {
+            total += Math.min(budgets[i], mid);
+        }
+
+        if (total < M) {
+            return reculsion(budgets, M, mid + 1, high);
+        } else if (total > M) {
+            return reculsion(budgets, M, low, mid - 1);
+        }
+
+        return mid;
+     }
+     */
 }
