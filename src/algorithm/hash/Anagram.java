@@ -15,6 +15,10 @@ public class Anagram {
     private String solution(String a, String b) {
         HashMap<Character, Integer> hashMap = new HashMap<>();
 
+        if (a.length() != b.length()) {
+            return "NO";
+        }
+
         for (char key :
                 a.toCharArray()) {
             hashMap.put(key, hashMap.getOrDefault(key, 0)+1);
