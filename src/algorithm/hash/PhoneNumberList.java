@@ -11,7 +11,6 @@ public class PhoneNumberList {
         System.out.println(new PhoneNumberList().solution2(phone_book3));
     }
     public boolean solution(String[] phone_book) {
-        boolean answer = true;
 
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (String s :
@@ -24,13 +23,12 @@ public class PhoneNumberList {
             for (int i = 0; i < s.length(); i++) {
                 String tmp = s.substring(0, i);
                 if (hashMap.containsKey(tmp)) {
-                    answer = false;
-                    break;
+                    return false;
                 }
             }
         }
 
-        return answer;
+        return true;
     }
 
     public boolean solution2(String[] phone_book) {
