@@ -12,8 +12,14 @@ public class MostBigNumber {
                 .sorted((o1, o2) -> (o2 + o1).compareTo(o1 + o2))
                 .collect(Collectors.joining());
 
+        return answer;
+    }
+
+    public String solution2(int[] numbers) {
+
         StringBuilder sb = new StringBuilder();
         String[] arr = new String[numbers.length];
+
         for (int i = 0; i < numbers.length; i++) {
             arr[i] = String.valueOf(numbers[i]);
         }
@@ -24,8 +30,7 @@ public class MostBigNumber {
             return "0";
         }
 
-        for (String s :
-                arr) {
+        for (String s : arr) {
             sb.append(s);
         }
 
