@@ -5,31 +5,31 @@ import java.util.Queue;
 
 public class Bridge {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
-        int answer = 0, sum = 0;
-        Queue<Integer> queue = new LinkedList<>();
-        for (int truck :
-                truck_weights) {
+        int time = 0, sum = 0;
+        Queue<Integer> bridge = new LinkedList<>();
+
+        for (int truck : truck_weights) {
             while (true) {
-                if (queue.isEmpty()) {
-                    queue.offer(truck);
+                if (bridge.isEmpty()) {
+                    bridge.offer(truck);
                     sum += truck;
-                    answer += 1;
+                    time++;
                     break;
-                } else if (queue.size() == bridge_length) {
-                    sum -= queue.poll();
+                } else if (bridge.size() == bridge_length) {
+                    sum -= bridge.poll();
                 } else {
                     if (sum + truck > weight) {
-                        queue.add(0);
-                        answer += 1;
+                        bridge.offer(0);
+                        time++;
                     } else {
-                        queue.add(truck);
+                        bridge.offer(truck);
                         sum += truck;
-                        answer += 1;
+                        time++;
                         break;
                     }
                 }
             }
         }
-        return answer + bridge_length;
+        return time + bridge_length;
     }
 }
