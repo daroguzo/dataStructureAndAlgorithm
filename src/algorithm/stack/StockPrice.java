@@ -16,7 +16,7 @@ public class StockPrice {
         int[] answer = new int[prices.length];
 
         for (int i = 0; i < prices.length; i++) {
-            if (!stack.isEmpty() && prices[i] < prices[stack.peek()]) {
+            while (!stack.isEmpty() && prices[i] < prices[stack.peek()]) {
                 answer[stack.peek()] = i - stack.peek();
                 stack.pop();
             }
